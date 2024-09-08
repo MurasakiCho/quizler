@@ -7,7 +7,7 @@ import {
   chooseRandom,
   createPrompt,
   createQuestions
-} from './lib'
+} from './lib.js'
 
 const cli = vorpal()
 

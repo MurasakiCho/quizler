@@ -1,7 +1,15 @@
 import fs from 'fs'
 
-export const chooseRandom = () => {
-  // TODO implement chooseRandom
+export const chooseRandom = (array, numItems) => {
+  if(array.length === 0 || array.length === 1){
+    return array
+  }
+  if(numItems < 1 || numItems > array.length){
+    numItems = Math.floor(Math.random() * array.length)
+  }
+  const array2 = new Array(numItems).fill(0)
+  const randomQuiz = array2.map(array => array[Math.floor(Math.random() * numItems)])
+  return randomQuiz
 }
 
 export const createPrompt = () => {
@@ -23,3 +31,8 @@ export const writeFile = (path, data) =>
       err ? reject(err) : resolve('File saved successfully')
     )
   })
+
+  const array = [0, 0 ,0]
+  const numItems = 2
+  
+  console.log(chooseRandom(array, numItems))
